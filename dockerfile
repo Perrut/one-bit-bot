@@ -1,4 +1,4 @@
-FROM ruby:2.5.1-slim
+FROM ruby:2.5.3-slim
 # Instala as nossas dependencias
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
   build-essential libpq-dev
@@ -10,6 +10,8 @@ RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 # Copia o nosso Gemfile para dentro do container
 COPY Gemfile ./
+# Atualiza o bundler
+RUN gem install bundler -v 2.0.0
 # Instala as Gems
 RUN bundle install
 # Copia nosso código para dentro do container
