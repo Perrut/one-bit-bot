@@ -11,7 +11,7 @@ WORKDIR $INSTALL_PATH
 # Copia o nosso Gemfile para dentro do container
 COPY Gemfile ./
 # Atualiza o bundler
-RUN gem install bundler -v 2.0.0
+RUN gem install bundler -v 1.15.2
 # Instala as Gems
 RUN bundle install
 # Copia nosso código para dentro do container
